@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<style>
+    body {
+        background-image: url("{% static 'images/home-background.avif' %}");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+    }
+</style>
+
+
+<div class="header">
+    <a href=""><button class="old-book-store">Old Book Store</button></a>
+    <a href=""><button class="learn-more">Learn More</button></a>
+</div>
+
+
+{% include 'navigation.html' %}
+
+
+
+<div class="home-container">
+    <h2>Welcome to ReRead</h2>
+    {% if request.user.is_authenticated %}
+    <h2>Welcome {{ request.user }}</h2>
+
+    <a href="{% url 'logout' %}">Logout here</a>
+
+    {% else %}
+
+    <div style="display: flex; flex-direction: column;">
+        <a href="{% url 'login' %}">Go to Login page</a>
+
+        <a href="{% url 'register' %}">Go to Register page</a>
+    </div>
+
+    {% endif %}
+</div>
+
+
+
+
+
+
+
+{% endblock %}
