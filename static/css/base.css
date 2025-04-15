@@ -7,3 +7,11 @@ body {
 
     /* background-attachment: fixed; */
 }
+
+
+.message-header{
+    background-color: white;
+    padding: 10px 15px;
+    font-weight: 600;
+    color: black;
+}

@@ -16,6 +16,16 @@
     }
 </style>
 
+{% if messages %}
+<div class="message-header">
+
+    {% for message in messages %}
+    <span>{{message}}</span>
+    {% endfor %}
+
+</div>
+{% endif %}
+
 
 <div class="header">
     <a href=""><button class="old-book-store">Old Book Store</button></a>
@@ -36,11 +46,14 @@
 
     {% else %}
 
-    <div style="display: flex; flex-direction: column;">
+
+    {% include 'login.html' with route="/auth/login" %}
+
+    <!-- <div style="display: flex; flex-direction: column;">
         <a href="{% url 'login' %}">Go to Login page</a>
 
         <a href="{% url 'register' %}">Go to Register page</a>
-    </div>
+    </div> -->
 
     {% endif %}
 </div>
