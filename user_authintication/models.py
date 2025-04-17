@@ -20,7 +20,7 @@ class laptop(models.Model):
 
 class Profile(models.Model):
 
-    profileUser = models.OneToOneField(User, on_delete=models.CASCADE)
+    profileUser = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
 
     name = models.CharField(max_length=250)
     email = models.CharField(max_length=255)
@@ -30,7 +30,7 @@ class Profile(models.Model):
     address = models.TextField(null=True, blank=True)
     contact_details = models.TextField(null=True, blank=True)
 
-    profile_pic = models.ImageField(upload_to='media/profilePic')
+    profile_pic = models.ImageField(upload_to='media/profilePic', null=True, blank=True)
 
 
     def __str__(self):

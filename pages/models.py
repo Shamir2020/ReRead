@@ -6,14 +6,16 @@ from user_authintication.models import Profile
 
 condition_choices = (
     ('New', "New"),
-    ('Best', 'Best'),
-    ('Better', "Better")
+    ('Used', 'Used'),
+    ('Better', "Used but like new")
 )
 
 class Book(models.Model):
 
     name = models.CharField(max_length=250)
     description = RichTextField()
+
+    author = models.CharField(max_length=250, default='')
 
     genre = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)

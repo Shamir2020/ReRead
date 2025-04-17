@@ -1,4 +1,5 @@
 from django import forms
+from user_authintication.models import Profile
 class RecentProduct(forms.Form):
     password=forms.CharField(widget=forms.PasswordInput)
     re_pass=forms.CharField(widget=forms.PasswordInput)
@@ -13,3 +14,10 @@ class RecentProduct(forms.Form):
     
 
     
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
+        

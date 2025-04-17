@@ -11,6 +11,8 @@
     width: 100%;
     margin: 10vh auto;
     padding: 10px 0;
+    background-color: white;
+    border-radius:  7px;
 }
 
 .authContainer form a {
@@ -103,4 +105,9 @@
   width: 100%;
   margin: 0 auto;
   padding: 10px 0;
+  color: black;
+}
+
+.home-container .authContainer a{
+  color: coral;
 }
