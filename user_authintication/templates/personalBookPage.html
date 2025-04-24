@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<style>
+    body {
+        background-image: url("{% static 'images/home-background.avif' %}");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+    }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+
+<div class="dashboardContainer">
+    <h3>Your Books</h3>
+
+    <a href="{% url 'addPersonalBook' %}"><button class="book-btns">Add a Book</button></a>
+
+
+    <div class="dashboardBookContainer">
+        {% for book in books %}
+        <div class="bookCard">
+            <img src="{{ book.book_image.url }}" alt="Book Image" class="bookImage">
+            <h4>{{ book.name }}</h4>
+            <p>Price: ${{ book.price }}</p>
+            <p>Condition: {{ book.condition }}</p>
+            <p>Location: {{ book.location }}</p>
+            
+            <div class="btns-container">
+                <a href="{% url 'bookDetail' book.id %}"><button class="view-btn">View</button></a>
+                <a href="{% url 'editPersonalBook' book.id %}"><button class="edit-btn">Edit</button></a>
+                <a href="{% url 'bookDetail' book.id %}"><button class="delete-btn">Delete</button></a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
