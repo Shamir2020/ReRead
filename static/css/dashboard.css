@@ -75,7 +75,7 @@ input[type="text"], input[type="email"], input[type="password"], select, input[t
     padding: 10px;
     margin: 10px;
     border-radius: 7px;
-    height: 600px;
+    height: 630px;
     position: relative;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -131,4 +131,11 @@ input[type="text"], input[type="email"], input[type="password"], select, input[t
     height: 60%;
     object-fit: cover;
     border-radius: 7px;
+}
+
+.dashboardContainer .book-card-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 10px auto;
 }

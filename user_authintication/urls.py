@@ -23,6 +23,7 @@ urlpatterns = [
     path('donateBookRequest/<str:id>', views.DonationInsidePage, name='donateBookRequest'),
     path('manageDonateRequests/', views.ManageDonateRequest, name='manageDonateRequests'),
     path('manageDonateRequestsInside/<str:id>', views.ManageDonateRequestInside, name='manageDonateRequestsInside'),
+    path('deleteBook/<str:id>', views.DeleteBook, name='deleteBook'),
 
     path("recent/",views.details),  
     path('successfully/',views.send)

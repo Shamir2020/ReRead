@@ -338,16 +338,20 @@ def EditPersonalBookPage(request, id):
     return render(request, 'addPersonalBook.html', {'form': form})
 
 
-# def DeleteBook(request, id):
+def DeleteBook(request, id):
 
-#     book = Book.objects.get(id=int(id))
+    book = Book.objects.get(id=int(id))
 
-#     if request.method == 'POST':
-#         book.delete()
-#         messages.success(request, 'Book deleted successfully !')
-#         return redirect('/')
+    if request.method == 'POST':
+        if book.owner != request.user:
+            messages.error(request, 'You are not authorized to delete this book !')
+            return redirect('/')
 
-#     return render(request, 'deleteBook.html', {'book': book})
+        book.delete()
+        messages.success(request, 'Book deleted successfully !')
+        return redirect('/')
+
+    return render(request, 'deleteBook.html', {'book': book})
 
 
 
