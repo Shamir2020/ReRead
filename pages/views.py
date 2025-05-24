@@ -16,7 +16,7 @@ def BookListingPage(request):
     books = Book.objects.all()
 
 
-    print(books)
+    # print(books)
 
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -26,7 +26,7 @@ def BookListingPage(request):
 
         print(conditions, locations, price)
 
-        print(type(price))
+        # print(type(price))
 
 
         if len(conditions) > 0:
@@ -49,9 +49,13 @@ def BookListingPage(request):
     maxPrice = Book.objects.aggregate(Max('price'))
     minPrice = Book.objects.aggregate(Min('price'))
 
-    conditions = ['New', 'Used but like new', 'Used']
-    locations = ['Dhaka', 'Rajshahi', 'Khulna']
+    # conditions = ['New', 'Used but like new', 'Used']
+    # locations = ['Dhaka', 'Rajshahi', 'Khulna']
 
+    locations = Book.objects.values_list('location', flat=True).distinct()
+    conditions = Book.objects.values_list('condition', flat=True).distinct()
+
+    print(locations, conditions)
 
 
     return render(request, 'bookListing.html', {"books":books, "maxPrice": maxPrice, "minPrice": minPrice, 'conditions': conditions, 'locations': locations})
